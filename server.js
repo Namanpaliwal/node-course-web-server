@@ -4,7 +4,7 @@ const fs = require('fs');
 const app = express();
 
 
-
+const port = process.env.PORT || 3000;
 
 
 
@@ -29,11 +29,11 @@ next();
 });
 
 
-app.use((req, res, next) =>{
+/*app.use((req, res, next) =>{
 	res.render('maintaince.hbs')
 
 });
-
+*/
 // if we mention the exact file we want we we do this 
 // i.e if we want help.html we we use this as help.html 
 //is in public dir so we are giving absolute path
@@ -59,4 +59,6 @@ app.get('/about', (req, res)=>{
 	res.render(help.html);
 });
 */
-app.listen(3000);
+app.listen(port, ()=>{
+	console.log(`server in running on ${port}`)
+});
